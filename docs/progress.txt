@@ -1,13 +1,13 @@
 # Project Progress
 ## E-Commerce Art Gallery Platform
 
-**Last Updated:** 2026-02-11
+**Last Updated:** 2026-02-12
 
 ---
 
 ## Current Phase
 
-**Phase 2: Authentication** - 🔲 Not Started
+**Phase 3: Public Pages** - � Not Started
 
 ---
 
@@ -39,6 +39,35 @@
 - [x] Verified admin user (admin@artgallery.com)
 - [x] Verified 6 categories seeded
 - [x] All tests passing (2 tests, 2 assertions)
+
+### Phase 2: Authentication ✅
+**Backend:**
+- [x] Installed shadcn/ui components (button, input, label, card, checkbox)
+- [x] Created RegisteredUserController with whatsapp & address fields
+- [x] Created AuthenticatedSessionController (Login/Logout)
+- [x] Created PasswordResetLinkController (Forgot Password)
+- [x] Created NewPasswordController (Reset Password)
+- [x] Created EnsureIsAdmin middleware
+- [x] Registered admin middleware alias in bootstrap/app.php
+- [x] Created routes/auth.php and included in routing
+- [x] Updated HandleInertiaRequests shared props (locale, currency, flash, config)
+- [x] Updated UserFactory with admin() state
+
+**Frontend:**
+- [x] Updated TypeScript types (auth.ts, index.ts)
+- [x] Created GuestLayout.tsx for auth pages
+- [x] Created pages/auth/Login.tsx with shadcn styling
+- [x] Created pages/auth/Register.tsx with whatsapp & address fields
+- [x] Created pages/auth/ForgotPassword.tsx
+- [x] Created pages/auth/ResetPassword.tsx
+- [x] Updated app.css with Inter font and design system
+
+**Testing:**
+- [x] Created tests/Feature/Auth/RegistrationTest.php (4 tests)
+- [x] Created tests/Feature/Auth/AuthenticationTest.php (4 tests)
+- [x] Created tests/Feature/Auth/PasswordResetTest.php (4 tests)
+- [x] Created tests/Feature/Auth/AdminMiddlewareTest.php (3 tests)
+- [x] All auth tests passing (15 tests, 30 assertions)
 
 ---
 

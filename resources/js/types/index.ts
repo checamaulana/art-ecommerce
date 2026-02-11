@@ -5,5 +5,16 @@ import type { Auth } from './auth';
 export type SharedData = {
     name: string;
     auth: Auth;
-    [key: string]: unknown;
+    locale: {
+        current: 'id' | 'en';
+        available: string[];
+    };
+    currency: 'IDR' | 'USD';
+    flash: {
+        success?: string;
+        error?: string;
+    };
+    config: {
+        whatsappNumber: string;
+    };
 };

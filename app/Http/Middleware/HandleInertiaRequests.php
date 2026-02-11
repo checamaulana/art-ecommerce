@@ -41,6 +41,18 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $request->user(),
             ],
+            'locale' => [
+                'current' => session('locale', 'id'),
+                'available' => ['id', 'en'],
+            ],
+            'currency' => session('currency', 'IDR'),
+            'flash' => [
+                'success' => $request->session()->get('success'),
+                'error' => $request->session()->get('error'),
+            ],
+            'config' => [
+                'whatsappNumber' => config('app.whatsapp_number', '6281234567890'),
+            ],
         ];
     }
 }
