@@ -1,0 +1,41 @@
+{
+  "common": {
+    "welcome": "Selamat Datang",
+    "home": "Beranda",
+    "catalog": "Katalog",
+    "contact": "Kontak",
+    "login": "Masuk",
+    "register": "Daftar",
+    "dashboard": "Dashboard",
+    "profile": "Profil",
+    "wishlist": "Wishlist",
+    "logout": "Keluar",
+    "search": "Cari...",
+    "filter": "Filter",
+    "sort": "Urutkan",
+    "all": "Semua"
+  },
+  "product": {
+    "dimensions": "Dimensi",
+    "medium": "Media",
+    "year": "Tahun",
+    "price": "Harga",
+    "buy_whatsapp": "Beli via WhatsApp",
+    "description": "Deskripsi",
+    "related": "Karya Lainnya",
+    "featured": "Unggulan",
+    "original": "Original",
+    "print": "Print",
+    "digital": "Digital",
+    "sold": "Terjual",
+    "available": "Tersedia"
+  },
+  "auth": {
+    "email": "Email",
+    "password": "Kata Sandi",
+    "name": "Nama",
+    "whatsapp": "WhatsApp",
+    "address": "Alamat",
+    "submit": "Kirim"
+  }
+}

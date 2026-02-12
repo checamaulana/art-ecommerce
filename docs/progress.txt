@@ -7,7 +7,7 @@
 
 ## Current Phase
 
-**Phase 3: Public Pages** - � Not Started
+**Phase 3: Public Pages** - ✅ Completed
 
 ---
 
@@ -69,15 +69,43 @@
 - [x] Created tests/Feature/Auth/AdminMiddlewareTest.php (3 tests)
 - [x] All auth tests passing (15 tests, 30 assertions)
 
+### Phase 3: Public Pages ✅
+**Backend:**
+- [x] Created `ProductFactory`, `CategoryFactory`, `ProductSeeder`
+- [x] Implemented `HomeController`, `CatalogController`, `WishlistController`, `ProfileController`
+- [x] Created `UpdateProfileRequest` with validation
+- [x] Defined public and protected routes in `web.php`
+- [x] Handled shared props (auth, flash, locale) in `HandleInertiaRequests`
+
+**Frontend:**
+- [x] Generated Design System (ui-ux-pro-max)
+- [x] Setup i18n (id/en)
+- [x] Created Layouts: `MainLayout`, `Navbar`, `Footer`
+- [x] Created Components: `ProductCard`, `ProductGrid`, `ImageGallery`, `WhatsAppButton`, `PriceDisplay`, `FilterPanel`, `Pagination`
+- [x] Created Pages: `Home`, `Catalog/Index`, `Catalog/Show`, `Wishlist/Index`, `Profile/Edit`
+- [x] Created Static Pages: `Contact`, `Faq`, `Terms`, `Privacy`
+
+**Testing:**
+- [x] Created `PublicPagesTest`, `CatalogTest`, `WishlistTest`, `ProfileTest`
+- [x] Verified accessibility of all public pages
+- [x] Verified filtering and sorting logic
+- [x] Verified wishlist functionality (add/remove)
+- [x] Verified profile update logic
+- [x] All Phase 3 feature tests passing (17 passed)
+
+### Maintenance / Fixes ✅
+- [x] Fixed Vite import resolution in `resources/js/app.tsx` (`./lib/i18n` instead of `../lib/i18n`)
+- [x] Fixed `MainLayout` imports to use existing component paths under `resources/js/components/*`
+- [x] Added Tailwind v4 `@theme inline` color token mapping so utilities like `border-border`, `bg-background`, and `text-foreground` compile correctly
+- [x] Fixed white screen on `/` caused by `route is not defined` by adding frontend route helper bootstrap (`resources/js/lib/route.ts`) and loading it in `resources/js/app.tsx`
+- [x] Removed invalid dependency import `react-icons/fa` from `WhatsAppButton` to prevent module resolution failures
+- [x] Verified frontend type-check passes with Bun (`bun run types`)
+- [x] Fixed white screen on `/catalog` by aligning paginator usage to Laravel paginator payload (`products.links` instead of `products.meta.links`)
+
 ---
 
 ## In Progress
 
-None currently.
-
----
-
 ## Blockers
 
 None currently.
-

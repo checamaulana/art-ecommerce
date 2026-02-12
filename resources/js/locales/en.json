@@ -1,0 +1,41 @@
+{
+  "common": {
+    "welcome": "Welcome",
+    "home": "Home",
+    "catalog": "Catalog",
+    "contact": "Contact",
+    "login": "Login",
+    "register": "Register",
+    "dashboard": "Dashboard",
+    "profile": "Profile",
+    "wishlist": "Wishlist",
+    "logout": "Logout",
+    "search": "Search...",
+    "filter": "Filter",
+    "sort": "Sort",
+    "all": "All"
+  },
+  "product": {
+    "dimensions": "Dimensions",
+    "medium": "Medium",
+    "year": "Year",
+    "price": "Price",
+    "buy_whatsapp": "Buy via WhatsApp",
+    "description": "Description",
+    "related": "Related Works",
+    "featured": "Featured",
+    "original": "Original",
+    "print": "Print",
+    "digital": "Digital",
+    "sold": "Sold",
+    "available": "Available"
+  },
+  "auth": {
+    "email": "Email",
+    "password": "Password",
+    "name": "Name",
+    "whatsapp": "WhatsApp",
+    "address": "Address",
+    "submit": "Submit"
+  }
+}

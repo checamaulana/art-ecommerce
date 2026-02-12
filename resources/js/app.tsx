@@ -3,6 +3,8 @@ import { Agentation } from 'agentation';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { createRoot } from 'react-dom/client';
 import '../css/app.css';
+import './lib/i18n';
+import './lib/route';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
