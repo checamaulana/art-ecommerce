@@ -25,7 +25,7 @@ export default function WishlistIndex({ wishlistProducts }: WishlistIndexProps) 
                <div key={product.id} className="relative group">
                    <ProductCard product={product} />
                    <Link 
-                        href={route('wishlist.destroy', product.id)} 
+                        href={route('wishlist.destroy', { product: product.slug })} 
                         method="delete" 
                         as="button"
                         className="absolute top-2 right-2 z-10 p-1.5 bg-background/80 backdrop-blur-sm rounded-full opacity-0 group-hover:opacity-100 transition-opacity hover:bg-destructive hover:text-destructive-foreground"

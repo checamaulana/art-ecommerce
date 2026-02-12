@@ -16,21 +16,8 @@ class CategoryFactory extends Factory
      */
     public function definition(): array
     {
-        $categories = [
-            'Abstract',
-            'Nature',
-            'Landscape',
-            'Portrait',
-            'Still Life',
-            'Modern',
-            'Traditional',
-            'Cityscape',
-            'Seascape',
-            'Wildlife',
-        ];
-
         return [
-            'name' => fake()->unique()->randomElement($categories),
+            'name' => 'Category '.fake()->unique()->numberBetween(1000, 9_999_999),
         ];
     }
 }

@@ -92,7 +92,7 @@ class Product extends Model
      */
     public function getPriceFormattedAttribute(): string
     {
-        return 'Rp ' . number_format($this->price, 0, ',', '.');
+        return 'Rp '.number_format($this->price, 0, ',', '.');
     }
 
     /**
@@ -134,7 +134,7 @@ class Product extends Model
      */
     public function scopeOfType($query, $type)
     {
-        return $query->when($type, fn($q) => $q->where('product_type', $type));
+        return $query->when($type, fn ($q) => $q->where('product_type', $type));
     }
 
     // ─── Boot ────────────────────────────────────────────────
@@ -144,9 +144,39 @@ class Product extends Model
      */
     protected static function booted(): void
     {
-        static::creating(function (Product $product) {
-            $product->slug = Str::slug($product->title);
+        static::creating(function (Product $product): void {
+            $product->slug = static::generateUniqueSlug($product->title);
         });
+
+        static::updating(function (Product $product): void {
+            if ($product->isDirty('title')) {
+                $product->slug = static::generateUniqueSlug($product->title, $product->id);
+            }
+        });
+    }
+
+    /**
+     * Generate a unique slug based on title.
+     */
+    private static function generateUniqueSlug(string $title, ?int $ignoreProductId = null): string
+    {
+        $baseSlug = Str::slug($title);
+        $baseSlug = $baseSlug !== '' ? $baseSlug : 'product';
+        $slug = $baseSlug;
+        $counter = 2;
+
+        while (
+            static::query()
+                ->withTrashed()
+                ->when($ignoreProductId !== null, fn ($query) => $query->whereKeyNot($ignoreProductId))
+                ->where('slug', $slug)
+                ->exists()
+        ) {
+            $slug = "{$baseSlug}-{$counter}";
+            $counter++;
+        }
+
+        return $slug;
     }
 
     /**

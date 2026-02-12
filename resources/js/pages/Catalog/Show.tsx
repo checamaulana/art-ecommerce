@@ -44,7 +44,7 @@ export default function CatalogShow({ product, relatedProducts }: CatalogShowPro
         return;
     }
 
-    post(route('wishlist.store', product.id), {
+    post(route('wishlist.store', { product: product.slug }), {
         preserveScroll: true,
         onSuccess: () => {
             // Toast handled by MainLayout flash listener or we can do it here

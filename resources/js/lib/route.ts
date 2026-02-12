@@ -34,6 +34,25 @@ const routePatterns: Record<string, string> = {
     'password.email': '/forgot-password',
     'password.reset': '/reset-password/{token}',
     'password.store': '/reset-password',
+    // Admin routes
+    'admin.dashboard': '/admin',
+    'admin.products.index': '/admin/products',
+    'admin.products.create': '/admin/products/create',
+    'admin.products.store': '/admin/products',
+    'admin.products.show': '/admin/products/{product}',
+    'admin.products.edit': '/admin/products/{product}/edit',
+    'admin.products.update': '/admin/products/{product}',
+    'admin.products.destroy': '/admin/products/{product}',
+    'admin.products.images.store': '/admin/products/{product}/images',
+    'admin.products.images.destroy': '/admin/products/{product}/images/{image}',
+    'admin.categories.index': '/admin/categories',
+    'admin.categories.create': '/admin/categories/create',
+    'admin.categories.store': '/admin/categories',
+    'admin.categories.edit': '/admin/categories/{category}',
+    'admin.categories.update': '/admin/categories/{category}',
+    'admin.categories.destroy': '/admin/categories/{category}',
+    'admin.users.index': '/admin/users',
+    'admin.users.show': '/admin/users/{user}',
 };
 
 function getPathParamKeys(pattern: string): string[] {

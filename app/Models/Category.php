@@ -34,8 +34,14 @@ class Category extends Model
      */
     protected static function booted(): void
     {
-        static::creating(function (Category $category) {
+        static::creating(function (Category $category): void {
             $category->slug = Str::slug($category->name);
+        });
+
+        static::updating(function (Category $category): void {
+            if ($category->isDirty('name')) {
+                $category->slug = Str::slug($category->name);
+            }
         });
     }
 }

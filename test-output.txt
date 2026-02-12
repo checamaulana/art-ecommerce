@@ -1,0 +1,148 @@
+
+   FAIL  Tests\Feature\Admin\CategoryCrudTest
+  Γ£ô admin can view categoriΓÇª 0.37s  
+  Γ£ô admin can create categoΓÇª 0.03s  
+  Γ¿» admin can update categoΓÇª 0.03s  
+  Γ£ô admin can delete emptyΓÇª  0.03s  
+  Γ£ô admin cannot delete catΓÇª 0.03s  
+  Γ£ô category name must be uΓÇª 0.03s  
+  Γ£ô category name is requirΓÇª 0.02s  
+  Γ£ô non-admin cannot accessΓÇª 0.03s  
+
+   FAIL  Tests\Feature\Admin\DashboardTest
+  Γ¿» dashboard displays statΓÇª 0.05s  
+  Γ£ô dashboard is protectedΓÇª  0.02s  
+  Γ£ô dashboard redirects unaΓÇª 0.02s  
+
+   FAIL  Tests\Feature\Admin\ProductCrudTest
+  Γ£ô admin can view productsΓÇª 0.04s  
+  Γ£ô admin can search producΓÇª 0.03s  
+  Γ£ô admin can view create pΓÇª 0.02s  
+  Γ¿» admin can create producΓÇª 0.02s  
+  Γ£ô admin can create printΓÇª  0.02s  
+  Γ£ô admin can view edit proΓÇª 0.02s  
+  Γ£ô admin can update producΓÇª 0.02s  
+  Γ¿» admin can delete producΓÇª 0.02s  
+  Γ£ô admin can delete producΓÇª 0.02s  
+  Γ£ô product validation requΓÇª 0.02s  
+  Γ£ô non-admin cannot accessΓÇª 0.02s  
+
+   FAIL  Tests\Feature\Admin\UserManagementTest
+  Γ£ô admin can view users inΓÇª 0.04s  
+  Γ£ô admin can search users   0.02s  
+  Γ¿» admin can view user detΓÇª 0.02s  
+  Γ£ô users index only showsΓÇª  0.02s  
+  Γ£ô non-admin cannot accessΓÇª 0.02s  
+
+   PASS  Tests\Feature\Auth\AdminMiddlewareTest
+  Γ£ô admin can access adminΓÇª  0.02s  
+  Γ£ô regular user cannot accΓÇª 0.02s  
+  Γ£ô guest cannot access admΓÇª 0.01s  
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\Admin\CΓÇª   
+  Failed asserting that a row in the table [categories] matches the attributes {
+    "id": 1,
+    "name": "New Name",
+    "slug": "new-name"
+}.
+
+Found similar results: [
+    {
+        "id": 1,
+        "name": "New Name",
+        "slug": "old-name"
+    }
+].
+
+  at tests\Feature\Admin\CategoryCrudTest.php:54
+     50Γûò             'name' => 'New Name',
+     51Γûò         ])
+     52Γûò         ->assertRedirect();
+     53Γûò 
+  Γ₧£  54Γûò     assertDatabaseHas('categories', [
+     55Γûò         'id' => $category->id,
+     56Γûò         'name' => 'New Name',
+     57Γûò         'slug' => 'new-name',
+     58Γûò     ]);
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  TeΓÇª  OverflowException   
+  Maximum retries of 10000 reached without finding a unique value
+
+  at vendor\fakerphp\faker\src\Faker\UniqueGenerator.php:80
+     76Γûò             $res = call_user_func_array([$this->generator, $name], $arguments);
+     77Γûò             ++$i;
+     78Γûò 
+     79Γûò             if ($i > $this->maxRetries) {
+  Γ₧£  80Γûò                 throw new \OverflowException(sprintf('Maximum retries of %d reached without finding a unique value', $this->maxRetries));
+     81Γûò             }
+     82Γûò         } while (array_key_exists(serialize($res), $this->uniques[$name]));
+     83Γûò         $this->uniques[$name][serialize($res)] = null;
+     84Γûò
+
+  1   vendor\fakerphp\faker\src\Faker\UniqueGenerator.php:80
+  2   database\factories\CategoryFactory.php:33
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  TestsΓÇª  LogicException   
+  GD extension is not installed.
+
+  at vendor\laravel\framework\src\Illuminate\Http\Testing\FileFactory.php:77
+     73Γûò      */
+     74Γûò     protected function generateImage($width, $height, $extension)
+     75Γûò     {
+     76Γûò         if (! function_exists('imagecreatetruecolor')) {
+  Γ₧£  77Γûò             throw new LogicException('GD extension is not installed.');
+     78Γûò         }
+     79Γûò 
+     80Γûò         return tap(tmpfile(), function ($temp) use ($width, $height, $extension) {
+     81Γûò             ob_start();
+
+  1   vendor\laravel\framework\src\Illuminate\Http\Testing\FileFactory.php:77
+  2   vendor\laravel\framework\src\Illuminate\Http\Testing\FileFactory.php:59
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\Admin\PΓÇª   
+  Failed asserting that a row in the table [products] does not match the attributes {
+    "id": 1
+}.
+
+Found similar results: [
+    {
+        "id": 1
+    }
+].
+
+  at tests\Feature\Admin\ProductCrudTest.php:172
+    168Γûò     actingAs($this->admin)
+    169Γûò         ->delete(route('admin.products.destroy', $product))
+    170Γûò         ->assertRedirect(route('admin.products.index'));
+    171Γûò 
+  Γ₧£ 172Γûò     assertDatabaseMissing('products', ['id' => $product->id]);
+    173Γûò });
+    174Γûò 
+    175Γûò test('admin can delete product image', function () {
+    176Γûò     $product = Product::factory()->create();
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILEDΓÇª   AssertionFailedError   
+  Inertia page component file [Admin/Users/Show] does not exist.
+
+  at vendor\inertiajs\inertia-laravel\src\Testing\AssertableInertia.php:112
+    108Γûò         if ($shouldExist || (is_null($shouldExist) && config('inertia.testing.ensure_pages_exist', true))) {
+    109Γûò             try {
+    110Γûò                 app('inertia.testing.view-finder')->find($value);
+    111Γûò             } catch (InvalidArgumentException $exception) {
+  Γ₧£ 112Γûò                 PHPUnit::fail(sprintf('Inertia page component file [%s] does not exist.', $value));
+    113Γûò             }
+    114Γûò         }
+    115Γûò 
+    116Γûò         return $this;
+
+  1   vendor\inertiajs\inertia-laravel\src\Testing\AssertableInertia.php:112
+  2   tests\Feature\Admin\UserManagementTest.php:45
+
+
+  Tests:    5 failed, 25 passed (144 assertions)
+  Duration: 1.30s
+
